@@ -9,12 +9,20 @@
 
 
 
-
-
-// Do custom stuff here
-
-
-
+// Import styles for all devices
+@import "styles-all";
+@media screen and (max-width: $page-width-tablet - 1) {
+	// Import styles for mobile devices
+	@import "styles-mobile";
+}
+@media screen and (min-width: $page-width-tablet) and (max-width: $page-width-desktop - 1) {
+	// Import styles for tablets
+	@import "styles-tablet";
+}
+@media screen and (min-width: $page-width-desktop) {
+	// Import styles for desktops
+	@import "styles-desktop";
+}
 
 
 
