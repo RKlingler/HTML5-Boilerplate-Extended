@@ -1,0 +1,71 @@
+// --------------------------------------------------
+// COLOR
+// --------------------------------------------------
+
+// Definitions:
+
+$color-black					:	#000000;
+$color-white					:	#ffffff;
+
+
+// Assignments:
+
+$color-text						:	$color-black;
+$color-background				:	$color-white;
+
+
+
+
+
+// --------------------------------------------------
+// TYPOGRAPHY
+// --------------------------------------------------
+
+// Definitions:
+
+$font-family-default			:	arial, sans-serif;
+
+$font-size-small				:	12px;
+$font-size-medium				:	16px;
+$font-size-large				:	22px;
+
+$font-weight-normal				:	normal;
+$font-weight-bold				:	bold;
+
+
+// Assignments:
+
+%font-default {
+	font-family					:	$font-family-default;
+	font-size					:	$font-size-small;
+	font-weight					:	$font-weight-normal;
+}
+%font-headline {
+	font-family					:	$font-family-default;
+	font-size					:	$font-size-large;
+	font-weight					:	$font-weight-bold;
+}
+
+
+
+
+
+// --------------------------------------------------
+// LAYOUT
+// --------------------------------------------------
+
+
+
+
+
+// --------------------------------------------------
+// MIXINS
+// --------------------------------------------------
+
+
+
+
+
+// --------------------------------------------------
+// MODULES
+// --------------------------------------------------
