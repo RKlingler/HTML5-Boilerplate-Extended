@@ -72,6 +72,13 @@ $screen-width-desktop			:	$page-width-desktop - 2 * $page-width-desktop;
 // MIXINS
 // --------------------------------------------------
 
+@mixin placeholder-color($color: #000000) {
+	&::-webkit-input-placeholder { color: $color; }
+	&:-moz-placeholder { color: $color; }
+	&::-moz-placeholder { color: $color; }
+	&:-ms-input-placeholder { color: $color; }
+}
+
 
 
 
