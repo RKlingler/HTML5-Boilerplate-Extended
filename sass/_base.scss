@@ -54,9 +54,15 @@ $font-weight-bold				:	bold;
 // LAYOUT
 // --------------------------------------------------
 
+$page-margin					:	20px;
+
 $page-width-mobile				:	320px;
 $page-width-tablet				:	640px;
 $page-width-desktop				:	960px;
+
+$screen-width-mobile			:	$page-width-mobile - 2 * $page-width-mobile;
+$screen-width-tablet			:	$page-width-tablet - 2 * $page-width-tablet;
+$screen-width-desktop			:	$page-width-desktop - 2 * $page-width-desktop;
 
 
 
