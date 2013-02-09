@@ -1,5 +1,8 @@
-// Import h5bps normalize.css
-@import "normalize";
+// Import compass
+@import "compass";
+
+// Import compass reset styles
+@import "compass/reset";
 
 // Import h5bps main.css
 @import "main";
