@@ -78,6 +78,11 @@ $screen-width-desktop			:	$page-width-desktop + 2 * $page-margin;
 	&::-moz-placeholder { color: $color; }
 	&:-ms-input-placeholder { color: $color; }
 }
+@mixin ellipsis() {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 
 
 
