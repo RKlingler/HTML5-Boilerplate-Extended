@@ -144,7 +144,7 @@ element, which will prompt them to switch to Desktop Mode.
 Here's what it looks like alongside H5BP's default X-UA-Compatible values:
 
 ```html
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,requiresActiveX=true">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,requiresActiveX=true">
 ```
 
 You can find more information in [Microsoft's IEBlog post about prompting for
@@ -258,15 +258,6 @@ value is boolean rather than a color. It's all or nothing.
 
 You can read about this useful element and more techniques in
 [Microsoft's documentation on adapting WebKit-oriented apps for IE10](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/11/15/adapting-your-webkit-optimized-site-for-internet-explorer-10.aspx).
-
-### Suppress IE6 image toolbar
-
-Kill IE6's pop-up-on-mouseover toolbar for images that can interfere with
-certain designs and be pretty distracting in general.
-
-```html
-<meta http-equiv="imagetoolbar" content="false">
-```
 
 
 ## Social Networks
@@ -456,12 +447,12 @@ Add this function after `_gaq` is defined:
             a.href = href;
             return a;
         };
-    window.onerror = function (message, file, row) {
+    window.onerror = function (message, file, line, column) {
         var host = link(file).hostname;
         _gaq.push([
             '_trackEvent',
             (host == window.location.hostname || host == undefined || host == '' ? '' : 'external ') + 'error',
-            message, file + ' LINE: ' + row, undefined, undefined, true
+            message, file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : ''), undefined, undefined, true
         ]);
     };
 }(window));
@@ -516,6 +507,34 @@ Home Screen icon. This works since iOS 6.
 For further information please read the [official documentation](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
 on Apple's site.
 
+### Apple Touch Icons
+
+Touch Icons can be seen as the favicons of mobile devices and tablets.
+
+If your site or icons are in a sub-directory, you will need to reference the
+icons using `link` elements placed in the HTML `head` of your document.
+
+```html
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+```
+
+The main sizes of the icons on iOS are:
+
+* iPad, high-resolution display, iOS 7: 152x152
+* iPad, high-resolution display, iOS ≤ 6: 144x144
+* iPhone, high-resolution display, iOS 7: 120x120
+* iPhone, high-resolution display, iOS ≤ 6: 114x114
+* iPad, non-Retina, iOS ≤ 6: 72x72
+
+For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
+example from above or replace the `apple-touch-icon-precomposed.png` within this
+project's root folder.
+
+Please refer to Mathias' [article on Touch
+Icons](http://mathiasbynens.be/notes/touch-icons) for a comprehensive overview.
+
+### Apple Touch Startup Image
+
 Apart from that it is possible to add start-up screens for web apps on iOS. This
 basically works by defining `apple-touch-startup-image` with an according link
 to the image. Since iOS devices have different screen resolutions it is
@@ -542,8 +561,14 @@ for the implementation.
   [visibility](http://googlewebmastercentral.blogspot.com/2009/05/introducing-rich-snippets.html).
 
 * If you're building a web app you may want [native style momentum scrolling in
-  iOS5](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
+  iOS 5+](http://johanbrook.com/browsers/native-momentum-scrolling-ios-5/) using
   `-webkit-overflow-scrolling: touch`.
+
+* If you want to disable the translation prompt in Chrome or block Google
+  Translate from translating your web page, use [`<meta name="google"
+  value="notranslate">`](https://support.google.com/translate/?hl=en#2641276).
+  To disable translation for a particular section of the web page, add
+  [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
 * Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
@@ -552,7 +577,6 @@ for the implementation.
 * Screen readers currently have less-than-stellar support for HTML5 but the JS
   script [accessifyhtml5.js](https://github.com/yatil/accessifyhtml5.js) can
   help increase accessibility by adding ARIA roles to HTML5 elements.
-
 
 *Many thanks to [Brian Blakely](https://github.com/brianblakely) for
 contributing much of this information.*
