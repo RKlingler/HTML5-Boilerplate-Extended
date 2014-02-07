@@ -1,5 +1,11 @@
 ### HEAD
 
+* Update to Apache Server Configs 2.2.0.
+* Update to jQuery 1.11.0.
+* Update to Normalize.css 3.0.0.
+  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
+* Add `Disallow:` to `robots.txt`
+  ([#1487](https://github.com/h5bp/html5-boilerplate/issues/1487)).
 * Remove default foreground color from form elements
   ([#1390](https://github.com/h5bp/html5-boilerplate/issues/1390)).
 * Remove default margin from print styles
@@ -8,14 +14,11 @@
   ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
    [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
 * Update to Modernizr 2.7.1.
-* Update to Apache Server Configs 2.1.0.
 * Add vertical centering for `svg`
   ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
 * Redesign 404 page
   ([#1443](https://github.com/h5bp/html5-boilerplate/pull/1443)).
 * Remove IE 6/7 hacks from `main.css`
-  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
-* Update to Normalize.css 2.1.3
   ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
 * Remove IE conditional classes
   ([#1187](https://github.com/h5bp/html5-boilerplate/issues/1187),

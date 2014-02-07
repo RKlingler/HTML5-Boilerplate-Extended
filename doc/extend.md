@@ -526,6 +526,30 @@ the Microformats wiki](http://microformats.org/wiki/rel-shortlink).
 <link rel="shortlink" href="h5bp.com">
 ```
 
+### Separate mobile URLs
+
+If you use separate URLs for desktop and mobile users, you should consider
+helping search engine algorithms better understand the configuration on your
+web site.
+
+This can be done by adding the following annotations in your HTML pages:
+
+* on the desktop page, add the `link rel="alternate"` tag pointing to the
+  corresponding mobile URL, e.g.:
+
+  `<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.example.com/page.html" >`
+
+* on the mobile page, add the `link rel="canonical"` tag pointing to the
+  corresponding desktop URL, e.g.:
+
+  `<link rel="canonical" href="http://www.example.com/page.html">`
+
+For more information please see:
+
+* https://developers.google.com/webmasters/smartphone-sites/details#separateurls
+* https://developers.google.com/webmasters/smartphone-sites/feature-phones
+
+
 ## Web Apps
 
 There are a couple of meta tags that provide information about a web app when
@@ -572,22 +596,30 @@ icons using `link` elements placed in the HTML `head` of your document, e.g.:
 
 The main sizes of the icons on iOS are:
 
-* iPad, high-resolution display, iOS 7: 152x152
-* iPad, high-resolution display, iOS ≤ 6: 144x144
-* iPhone, high-resolution display, iOS 7: 120x120
-* iPhone, high-resolution display, iOS ≤ 6: 114x114
-* iPad, non-Retina, iOS ≤ 6: 72x72
+* `57×57px` – non-Retina iPhone and iPod Touch
+* `72×72px` – iPad mini and the first- and second-generation iPad on iOS ≤ 6
+* `76×76px` – iPad mini and the first- and second-generation iPad on iOS ≥ 7
+* `114×114px` – iPhone 4+ (with Retina Display) on iOS ≤ 6
+* `120×120px` – iPhone 4+ (with Retina Display) on iOS ≥ 7
+* `144×144px` – iPad 3+ (with Retina Display)
+* `152×152px` – iPad 3+ (with Retina Display)
 
 For non-Retina iPhone, iPod Touch, and Android 2.1+ devices you can use the
-example from above or replace the `apple-touch-icon-precomposed.png` within this
-project's root folder.
+example from above or replace the `apple-touch-icon-precomposed.png` within
+this project's root folder.
 
-In most cases, one 152x152 touch icon named `apple-touch-icon-precomposed.png`
+In most cases, one `152×152px` touch icon named `apple-touch-icon-precomposed.png`
 is enough. If you use art-direction and want to have different content for each
 size, you can add more touch icons as written above.
 
-Please refer to Mathias' [article on Touch
-Icons](http://mathiasbynens.be/notes/touch-icons) for a comprehensive overview.
+As of iOS 7, no special effects are applied to the touch icons. So, if you are
+only targeting iOS 7 and up, you don’t have to use `precomposed` anymore (but
+we [strongly recommend you
+do](http://mathiasbynens.be/notes/touch-icons#effects)!).
+
+For a more comprehensive overview, please refer to Mathias' [article on Touch
+Icons](http://mathiasbynens.be/notes/touch-icons).
+
 
 ### Apple Touch Startup Image
 
@@ -605,6 +637,7 @@ However, it is possible to detect which start-up image to use with JavaScript.
 The Mobile Boilerplate provides a useful function for this. Please see
 [helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
 for the implementation.
+
 
 ### Chrome Mobile web apps
 
